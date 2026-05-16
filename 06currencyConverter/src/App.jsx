@@ -1,28 +1,27 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import InputBox from './components/InputBox';
 import useCurrencyInfo from './hooks/useCurrencyInfo';
 
 function App() {
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
+  const [from, setFrom] = useState('usd');
+  const [to, setTo] = useState('inr');
   const [convertedAmount, setConvertedAmount] = useState(0);
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
 
- const swap = () => {
-   setFrom(to);
-   setTo(from);
-   setAmount(convertedAmount);
-   setConvertedAmount(amount);
- };
+  const swap = () => {
+    setFrom(to);
+    setTo(from);
+    setAmount(convertedAmount);
+    setConvertedAmount(amount);
+  };
 
-
-const convert = () => {
-  if (!currencyInfo[to]) return;
-  setConvertedAmount(amount * currencyInfo[to]);
-};
+  const convert = () => {
+    if (!currencyInfo[to]) return;
+    setConvertedAmount(amount * currencyInfo[to]);
+  };
 
   return (
     <div
@@ -31,7 +30,6 @@ const convert = () => {
         backgroundImage: `url('https://images.unsplash.com/photo-1622760274068-a26adafc984f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
       }}
     >
-      
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
           <form
@@ -72,7 +70,8 @@ const convert = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+              className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
+            >
               Convert {from.toUpperCase()} to {to.toUpperCase()}
             </button>
           </form>

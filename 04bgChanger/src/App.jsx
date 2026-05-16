@@ -1,10 +1,9 @@
-import {  useState } from "react"
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  
-  const [color, setColor] = useState("olive");
-   
+  const [color, setColor] = useState('olive');
+
   return (
     <div
       className="w-full h-screen duration-200 "
@@ -55,7 +54,7 @@ function App() {
           <button
             onClick={() => setColor('Lavender')}
             className="outline-none px-4 rounded-full py-1 text-white shadow-lg "
-            style={{ backgroundColor: 'Lavnder' }}
+            style={{ backgroundColor: 'Lavender' }}
           >
             Lavender
           </button>
@@ -113,4 +112,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
